@@ -2,6 +2,10 @@ function newCard() {
     var title = document.getElementById("title").value;
     var content = document.getElementById("content").value;
     var img = document.getElementById("img").value;
+    if(title == "" || content == "" || img == ""){
+        alert("ALL Fields Must Be Filled");
+        return false;
+    }
     var newDiv = `<div class='col-4'>
                 <div class='card text-white bg-dark mb-3' style='width: 15rem; padding: .5em;'>
                 <img class='card-img-top' src=' ` + img + `'alt='Card image cap'>
