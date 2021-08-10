@@ -113,3 +113,16 @@ function remMonitor() {
     sessionStorage["monitors"] = newValueString;
     addCounter();
 }
+function createTable() {
+    var laptopAmount = parseFloat(sessionStorage.getItem("laptops"));
+    var phoneAmount = parseFloat(sessionStorage.getItem("phones"));
+    var desktopAmount = parseFloat(sessionStorage.getItem("desktops"));
+    var monitorAmount = parseFloat(sessionStorage.getItem("monitors"));
+    var laptopCost = laptopAmount * 400;
+    var phoneCost = phoneAmount * 600;
+    var desktopCost = desktopAmount * 1000;
+    var monitorCost = monitorAmount * 150;
+    var totalPrice = laptopCost + phoneCost + desktopCost + monitorCost;
+    var table = "\n                    <tr>\n                        <th>Item</th>\n                        <th>Quantity</th>\n                        <th>Cost</th>\n                    </tr>\n                    <tr>\n                        <td>Laptops</td>\n                        <td>X" + laptopAmount + "</td>\n                        <td>$" + laptopCost + "</td>\n                    </tr>\n                    <tr>\n                        <td>Phones</td>\n                        <td>X" + phoneAmount + "</td>\n                        <td>$" + phoneCost + "</td>\n                    </tr>\n                    <tr>\n                        <td>Desktops</td>\n                        <td>X" + desktopAmount + "</td>\n                        <td>$" + desktopCost + "</td>\n                    </tr>\n                    <tr>\n                        <td>Monitors</td>\n                        <td>X" + monitorAmount + "</td>\n                        <td>$" + monitorCost + "</td>\n                    </tr>\n                    <tr>\n                        <td> </td>\n                        <td> </td>\n                        <td> </td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td><b>Total Cost</b></td>\n                        <td><b>$" + totalPrice + "</b></td>\n                    </tr>\n                ";
+    document.querySelector("#table").innerHTML = table;
+}

@@ -122,3 +122,54 @@ function remMonitor(){
     sessionStorage["monitors"] = newValueString;
     addCounter();
 }
+
+function createTable(){
+    var laptopAmount = parseFloat(sessionStorage.getItem("laptops"));
+    var phoneAmount = parseFloat(sessionStorage.getItem("phones"));
+    var desktopAmount = parseFloat(sessionStorage.getItem("desktops"));
+    var monitorAmount = parseFloat(sessionStorage.getItem("monitors"));
+    var laptopCost = laptopAmount * 400;
+    var phoneCost = phoneAmount * 600;
+    var desktopCost = desktopAmount * 1000;
+    var monitorCost = monitorAmount * 150;
+    var totalPrice = laptopCost + phoneCost + desktopCost + monitorCost;
+    var table = `
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Cost</th>
+                    </tr>
+                    <tr>
+                        <td>Laptops</td>
+                        <td>X${laptopAmount}</td>
+                        <td>$${laptopCost}</td>
+                    </tr>
+                    <tr>
+                        <td>Phones</td>
+                        <td>X${phoneAmount}</td>
+                        <td>$${phoneCost}</td>
+                    </tr>
+                    <tr>
+                        <td>Desktops</td>
+                        <td>X${desktopAmount}</td>
+                        <td>$${desktopCost}</td>
+                    </tr>
+                    <tr>
+                        <td>Monitors</td>
+                        <td>X${monitorAmount}</td>
+                        <td>$${monitorCost}</td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>Total Cost</b></td>
+                        <td><b>$${totalPrice}</b></td>
+                    </tr>
+                `;
+
+    (<HTMLElement>document.querySelector("#table")).innerHTML = table;
+}
