@@ -1,0 +1,33 @@
+.center {
+    margin: auto;
+    width: 20%;
+    background-color: black;
+    padding: 10px;
+  }
+h3{
+    width: fit-content;
+    color:white;
+    margin-left: auto;
+    margin-right: auto;
+}
+input{
+    margin: 1em;
+}
+.button {
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+  }
+a{
+    width: fit-content;
+    color:blue;
+}
+p{
+    color:white;
+}
+.center2 {
+    margin: auto;
+    width: 50%;
+    background-color: black;
+    padding: 10px;
+  }

@@ -1,0 +1,9 @@
+.button {
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+  }
+a{
+    width: fit-content;
+    color:blue;
+}

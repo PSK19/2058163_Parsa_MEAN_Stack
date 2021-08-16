@@ -1,0 +1,19 @@
+<span style="color:white;">Contact Name</span>
+<input type="text" #name />
+<br />
+<span style="color:white;">Phone Number</span>
+<input type="text" #phoneNumber />
+<br />
+<input type="button" value="Save" (click)=(addContact(name.value,phoneNumber.value))>
+<div style="background-color: gray;">
+    <table>
+        <tr>
+            <th>Contact Name</th>
+            <th>Phone Number</th>
+        </tr>
+        <tr *ngFor="let cont of contacts">
+            <td>{{cont.name}}</td>
+            <td>{{cont.phoneNumber}}</td>
+        </tr>
+    </table>
+</div>

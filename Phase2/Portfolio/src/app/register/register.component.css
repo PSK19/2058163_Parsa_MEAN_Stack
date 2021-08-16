@@ -1,0 +1,15 @@
+.center {
+    margin: auto;
+    width: 20%;
+    background-color: black;
+    padding: 10px;
+  }
+h3{
+    width: fit-content;
+    color:white;
+    margin-left: auto;
+    margin-right: auto;
+}
+input{
+    margin: 1em;
+}

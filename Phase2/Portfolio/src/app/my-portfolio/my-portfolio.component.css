@@ -1,0 +1,26 @@
+.center {
+    margin: auto;
+    width: 50%;
+    background-color: black;
+    padding: 10px;
+  }
+h3{
+    width: fit-content;
+    color:white;
+    margin-left: auto;
+    margin-right: auto;
+}
+input{
+    margin: 1em;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+th{
+    color: white;
+}
+table, td, th {
+  border: 1px solid black;
+}
+

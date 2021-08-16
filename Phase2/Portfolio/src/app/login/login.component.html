@@ -1,0 +1,24 @@
+<div class="button">
+    <a (click)="toggleLogin()">Login</a> | <a (click)="toggleRegistration()">Register</a>
+  </div>
+<div class="center" *ngIf="showLogin">
+    <h3>Login</h3>
+    <form [formGroup]="loginRef" (ngSubmit)="checkUser()">
+        <br />
+        <span style="color:white;">Username:</span>
+        <input type="text" formControlName="user" />
+        <br />
+        <span style="color:white;">Password:</span>
+        <input type="password" formControlName="pass" />
+        <br />
+        <input type="submit" value="Login"/>
+    </form>
+</div>
+<div *ngIf="showRegistration">
+    <app-register></app-register>
+</div>
+<div class="center2" *ngIf="showPortfolio">
+    <h3>Portfolio</h3>
+    <p>Welcome {{user}}</p>
+    <app-my-portfolio></app-my-portfolio>
+</div>
