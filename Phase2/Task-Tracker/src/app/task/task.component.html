@@ -1,0 +1,57 @@
+<div>
+    <mat-grid-list cols="2" rowHeight="fit" style="height:600px">
+        <mat-grid-tile><h2>To-do Task</h2></mat-grid-tile>
+        <mat-grid-tile><h2>To-do List</h2></mat-grid-tile>
+
+        <!-- Make Form -->
+        <mat-grid-tile>
+            <div>
+                <form #taskRef="ngForm" (ngSubmit)="addTask(taskRef)">
+                    <mat-form-field>
+                        <mat-label>ID</mat-label>
+                        <input matInput name="id" ngModel required/>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input matInput name="name" ngModel required/>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field>
+                        <mat-label>Task</mat-label>
+                        <textarea matInput name="desc" ngModel required></textarea>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field>
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker" name="date" ngModel required/>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #picker></mat-datepicker>
+                    </mat-form-field>
+                    <br/>
+                    <button type="submit" mat-raised-button color="primary">Add Task</button>
+                    <button type="reset" mat-raised-button color="warn">Reset</button>
+                </form>
+            </div>
+        </mat-grid-tile>
+
+        <!-- Make Table -->
+        <mat-grid-tile>
+            <br/>
+            <table border="1" *ngIf="show">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Desc</th>
+                    <th>Date</th>
+                </tr>
+                <tr *ngFor="let obj of tasks">
+                    <td>{{obj.id}}</td>
+                    <td>{{obj.name}}</td>
+                    <td>{{obj.desc}}</td>
+                    <td>{{obj.date}}</td>
+                </tr>
+            </table>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
