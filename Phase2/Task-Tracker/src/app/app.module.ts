@@ -13,6 +13,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatButton, MatButtonModule } from '@angular/material/button';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -31,7 +33,13 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
     MatNativeDateModule,
     MatGridListModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     MatDatepickerModule,
