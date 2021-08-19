@@ -1,0 +1,33 @@
+<div>
+    <form *ngFor="let q of questionArray" [formGroup]="questionRef" style="margin-top: 2em;">
+        <ul>
+            <li>Q: {{q.question}}
+                <ol type="A">
+                    <div class="row">
+                        <div class="col">
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans1}}" /><label
+                                    for="ans1">{{q.ans1}}</label></li>
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans2}}" /><label
+                                    for="ans2">{{q.ans2}}</label></li>
+                        </div>
+                        <div class="col">
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans3}}" /><label
+                                    for="ans3">{{q.ans3}}</label></li>
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans4}}" /><label
+                                    for="ans4">{{q.ans4}}</label></li>
+                        </div>
+                    </div>
+                </ol>
+                <div>
+                    <input type="submit" class="btn-primary" (click)="submitButton.disabled=true;checkAnswer(q.correct)"
+                        #submitButton />
+                </div>
+            </li>
+        </ul>
+        <span *ngIf="show">The correct answer is {{q.correct}}</span>
+    </form>
+    <br />
+    <div style="text-align: center;">
+        <button class="btn-warning" style="width:25%;" (click)="finalSubmit.disabled=true;finalScore();" #finalSubmit>Submit All</button>
+    </div>
+</div>

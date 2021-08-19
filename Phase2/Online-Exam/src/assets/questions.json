@@ -1,0 +1,12 @@
+[
+        {"question":"5+5", "ans1":"5", "ans2":"0", "ans3":"10","ans4":"11","correct":"10"},
+        {"question":"5-5", "ans1":"5", "ans2":"0", "ans3":"10","ans4":"11","correct":"0"},
+        {"question":"5*5", "ans1":"25", "ans2":"5", "ans3":"10","ans4":"15","correct":"25"},
+        {"question":"5/5", "ans1":"5", "ans2":"1", "ans3":"10","ans4":"15","correct":"1"},
+        {"question":"10+10", "ans1":"5", "ans2":"0", "ans3":"10","ans4":"20","correct":"20"},
+        {"question":"5+5+10", "ans1":"5", "ans2":"20", "ans3":"10","ans4":"11","correct":"20"},
+        {"question":"5-5+10", "ans1":"5", "ans2":"0", "ans3":"10","ans4":"11","correct":"10"},
+        {"question":"5+5*10", "ans1":"55", "ans2":"100", "ans3":"10","ans4":"5","correct":"55"},
+        {"question":"5*5+10", "ans1":"55", "ans2":"35", "ans3":"10","ans4":"5","correct":"35"},
+        {"question":"5/5+10", "ans1":"1", "ans2":"0", "ans3":"10","ans4":"11","correct":"11"}
+    ]
