@@ -1,33 +1,49 @@
-<div>
+<div *ngIf="!showFinal">
+    <p><b>NOTE:</b> All answers must be submitted individual, then once again at the end. To view your results, click on the 'View Results' 
+        button once everything has been submitted.</p>
+</div>
+<div *ngIf="showExam">
     <form *ngFor="let q of questionArray" [formGroup]="questionRef" style="margin-top: 2em;">
         <ul>
-            <li>Q: {{q.question}}
+            <li>Q{{q.number}}: {{q.question}}
                 <ol type="A">
                     <div class="row">
                         <div class="col">
-                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans1}}" /><label
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans1}}" #radioButton1/><label
                                     for="ans1">{{q.ans1}}</label></li>
-                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans2}}" /><label
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans2}}" #radioButton2/><label
                                     for="ans2">{{q.ans2}}</label></li>
                         </div>
                         <div class="col">
-                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans3}}" /><label
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans3}}" #radioButton3/><label
                                     for="ans3">{{q.ans3}}</label></li>
-                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans4}}" /><label
+                            <li><input type="radio" name="ans" formControlName="ans" value="{{q.ans4}}" #radioButton4/><label
                                     for="ans4">{{q.ans4}}</label></li>
                         </div>
                     </div>
                 </ol>
                 <div>
-                    <input type="submit" class="btn-primary" (click)="submitButton.disabled=true;checkAnswer(q.correct)"
-                        #submitButton />
+                    <button type="button" class="btn-primary" (click)="submitButton.disabled=true;radioButton1.disabled=true;radioButton2.disabled=true;
+                        radioButton3.disabled=true;radioButton4.disabled=true;checkAnswer(q.correct,q.number)" #submitButton>Submit</button>
                 </div>
             </li>
         </ul>
-        <span *ngIf="show">The correct answer is {{q.correct}}</span>
+        <span *ngIf="!showCorrect(q.number)" style="color: red;">The correct answer is {{q.correct}}</span>
     </form>
     <br />
     <div style="text-align: center;">
         <button class="btn-warning" style="width:25%;" (click)="finalSubmit.disabled=true;finalScore();" #finalSubmit>Submit All</button>
+    </div>
+    <div style="text-align: center;">
+        <button class="btn-secondary" style="width:25%;margin-top: 1em;" (click)="viewResults();" #finalSubmit>View Results</button>
+    </div>
+</div>
+<div *ngIf="showFinal" style="width: fit-content; margin-left: auto; margin-right: auto; border: 1px solid black;">
+    <h1>Your Score Is:</h1>
+    <div *ngIf="passedExam">
+        <h1 style="color: green;">{{finalMessage}}</h1>
+    </div>
+    <div *ngIf="!passedExam">
+        <h1 style="color: red;">{{finalMessage}}</h1>
     </div>
 </div>
