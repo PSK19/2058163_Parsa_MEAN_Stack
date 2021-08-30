@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/JavaScript">
+        var socket = io();
+        socket.emit("obj","Connected To Server...");
+        socket.on("obj1",(msg)=>{
+            document.getElementById("chat").innerHTML += msg + "\n";
+        })
+        send = ()=>{
+            let msg = document.getElementById("newMsg").value;
+            let chatMsg = "Client Says: " + msg + "\n";
+            document.getElementById("chat").innerHTML += chatMsg;
+            socket.emit("newMsg",msg);
+            document.getElementById("newMsg").value="";
+        }
+    </script>
+</head>
+<body>
+    <h2>Chat Bot</h2>
+    <label for="name">Chat History:</label><br/>
+    <textarea name="chat" id="chat" cols="100" rows="20" disabled></textarea><br/>
+    <input type="text" id="newMsg" placeholder="Say Something..."/><br/>
+    <input type="button" value="Send" onclick="send()"/>
+</body>
+</html>
